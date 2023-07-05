@@ -1,0 +1,62 @@
+1. Movies Table
+
+create table movies(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+movie_name TEXT,
+release_date TEXT
+  );
+
+insert into movies (movie_name, release_date) values("Avatar", "20/2/2023");
+
+2. Media Table
+
+create table media(
+  media_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  image TEXT,
+  movie_id INTEGER,
+  FOREIGN KEY(movie_id) REFERENCES Movies(id) 
+  );
+
+3. Genre Table
+
+create table genre(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_type TEXT,
+  sub_genre TEXT,
+  genre_id INTEGER,
+  FOREIGN KEY(genre_id) REFERENCES Movies(id) 
+  );
+
+4. User Table
+
+create table user(
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_name TEXT,
+  user_rating FLOAT,
+  movie_id INTEGER,
+  FOREIGN KEY(movie_id) REFERENCES movies(id)
+  );
+
+5 Artist Table
+
+create table artist(
+  artist_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  artist_name TEXT,
+  artist_role TEXT,
+  movie_id INTEGER,
+  FOREIGN KEY(movie_id) REFERENCES movies(id)
+  );
+
+6 Skills Table
+
+create table skill(
+  skill_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  skill1 TEXT,
+  skill2 TEXT,
+  skill3 TEXT,
+  artistId INTEGER,
+  movieId INTEGER,
+  FOREIGN KEY(artistId) REFERENCES artist(artist_id),
+  FOREIGN KEY(movieId) REFERENCES movies(id)
+  );
+
