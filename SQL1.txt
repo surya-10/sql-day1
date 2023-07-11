@@ -6,7 +6,7 @@ movie_name TEXT,
 release_date TEXT
   );
 
-insert into movies (movie_name, release_date) values("Avatar", "20/2/2023");
+
 
 2. Media Table
 
